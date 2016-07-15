@@ -70,7 +70,7 @@ this.labelScore.text = this.score;
 
   };
 
-  var game = new Phaser.Game(400 , 600);
+  var game = new Phaser.Game(500 , 600);
 
   game.state.add('main', mainState);
 

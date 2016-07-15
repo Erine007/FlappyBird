@@ -48,6 +48,19 @@ var mainState = {
   },
 
 
+  addRowOfPipes: function() {
+
+        var hole = Math.floor(Math.random() * 5) + 1;
+
+
+        for (var i = 0; i < 8; i++)
+            if (i != hole && i != hole + 1)
+                this.addOnePipe(400, i * 60 + 10);
+    },
+
+
+
+
   };
 
   var game = new Phaser.Game(400 , 490);
@@ -55,24 +68,3 @@ var mainState = {
   game.state.add('main', mainState);
 
   game.state.start('main');
-
-    addOnePipe: function(x, y) {
-      var pipe = game.add.sprite(x, y, 'pipe');
-    this.pipes.add(pipe);
-
-    game.physics.arcade.enable(pipe);
-
-    pipe.body.velocity.x = -200;
-
-    pipe.checkWorldBounds = true;
-    pipe.outOfBoundsKill = true;
-},
-      addRowOfPipes: function() {
-
-          var hole = Math.floor(Math.random() * 5) + 1;
-
-
-          for (var i = 0; i < 8; i++)
-              if (i != hole && i != hole + 1)
-                  this.addOnePipe(400, i * 60 + 10);
-      },
